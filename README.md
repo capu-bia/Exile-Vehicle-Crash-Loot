@@ -84,6 +84,8 @@ Installation
                   };
               };
           };
+	  
+5. repack your mission folder into pbo
 
    
    -------
