@@ -21,7 +21,8 @@ Installation
          
    to each vehicle class you wanna make lootable (class Car, class Air, and class Boat).
    -------
-   Example: class Car 
+   Example: 
+              class Car 
 	          {
 		           targetType = 2;
 		           target = "Car";
