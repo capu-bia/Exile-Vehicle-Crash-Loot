@@ -11,16 +11,15 @@ Installation
 3. Copy/Merge code from config.cpp file to your config file
 
 4. Edit config.cpp again and add:
-
-
+   
    // Loot destroyed vehicle
-	 class Loot: ExileAbstractAction
-         {
-             title = "Loot Vehicle";
-             condition = "(!(alive (ExileClientInteractionObject)))";
-             action = "_this spawn ExileClient_object_container_pack";
-         }; 
-         
+   class Loot: ExileAbstractAction
+   {
+       title = "Loot Vehicle";
+       condition = "(!(alive (ExileClientInteractionObject)))";
+       action = "_this spawn ExileClient_object_container_pack";
+   }; 
+   
    
    to each vehicle class you wanna make lootable (class Car, class Air, and class Boat).
    
