@@ -4,7 +4,7 @@
  * Exile Mod
  * exile.majormittens.co.uk
  * © 2015 Exile Mod Team
- *
+ * modified by Peresvet
  * This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  */
@@ -21,12 +21,18 @@ _popTabs = _object getVariable ["ExileMoney",0];
 _typeof = typeOf _object;
 deleteVehicle _object;
 _object call ExileServer_object_container_database_delete;
-_groundHolder = createVehicle ["GroundWeaponHolder",_objectpos2, [], 0, "CAN_COLLIDE"];
+_groundHolder = createVehicle ["Box_IND_Wps_F",_objectpos2, [], 0, "CAN_COLLIDE"];
+
+clearWeaponCargoGlobal 		_groundHolder;
+clearItemCargoGlobal 		_groundHolder;
+clearMagazineCargoGlobal 	_groundHolder;
+clearBackpackCargoGlobal 	_groundHolder;
+
 _groundHolder setPosATL _objectpos2;
 if (_popTabs > 0 ) then
 {
-    _popTabsObject = createVehicle ["Exile_PopTabs", _objectpos2, [], 0, "CAN_COLLIDE"];    
-    _popTabsObject setVariable ["ExileMoney", _popTabs, true];
+   // _popTabsObject = createVehicle ["Exile_PopTabs", _objectpos2, [], 0, "CAN_COLLIDE"];    
+    _groundHolder setVariable ["ExileMoney", _popTabs, true];
 };
 _filter  = ("getText(_x >> 'staticObject') == _typeof" configClasses(configFile >> "CfgConstruction")) select 0;
 _kitMagazine = getText(_filter >> "kitMagazine");
